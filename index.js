@@ -1,7 +1,7 @@
 try {
     const res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature");
     const data = await res.json();
-    document.body.style.backgroundImage = `url(${data.urls.regular})`;
+    document.body.style.backgroundImage = `url(${data.urls.full})`;
     document.getElementById("author").textContent = `By: ${data.user.name}`; // Safer alternative using textContent
 } catch (err) {
     document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1560008511-11c63416e52d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTEwMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjI4NDIxMTc&ixlib=rb-1.2.1&q=80&w=1080)`;
@@ -29,14 +29,14 @@ try {
 
     const cryptoDiv = document.getElementById("crypto");
     cryptoDiv.innerHTML = ''; // Clear the div before adding new elements
-    
+
     const priceP = document.createElement('p');
     priceP.textContent = `🎯: $${data.market_data.current_price.usd}`;
     const highP = document.createElement('p');
     highP.textContent = `👆: $${data.market_data.high_24h.usd}`;
     const lowP = document.createElement('p');
     lowP.textContent = `👇: $${data.market_data.low_24h.usd}`;
-    
+
     cryptoDiv.appendChild(priceP);
     cryptoDiv.appendChild(highP);
     cryptoDiv.appendChild(lowP);
